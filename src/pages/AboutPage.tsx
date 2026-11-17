@@ -1,6 +1,7 @@
 import { PageSection } from '../components/PageSection/PageSection'
 import { aboutParagraphs, interests } from '../data/portfolioData'
 import profile from '../assets/perfil.jpg'
+import './AboutPage.css'
 
 export function AboutPage() {
   return (
@@ -16,7 +17,7 @@ export function AboutPage() {
       {aboutParagraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
       <ul className="interests" aria-label="Áreas de interés">
         {interests.map(interest => (
-          <li className="interests__item" key={interest.title}>
+          <li className={`interests__item interests__item--${interest.tone}`} key={interest.title}>
             <h2 className="interests__title">{interest.title}</h2>
             <p className="interests__text">{interest.description}</p>
           </li>

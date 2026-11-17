@@ -1,4 +1,7 @@
 import type { ChangeEvent, FormEvent, ReactNode, RefObject } from 'react'
+import type { NavLinkRenderProps } from 'react-router-dom'
+
+export type NavigationLinkState = Pick<NavLinkRenderProps, 'isActive'>
 
 export type Theme = 'light' | 'dark'
 export type ThemePreference = Theme | null

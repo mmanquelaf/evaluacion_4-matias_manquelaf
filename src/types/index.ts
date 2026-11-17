@@ -8,6 +8,7 @@ export interface NavigationItem {
 }
 
 export interface Interest {
+  tone: 'accent' | 'gold' | 'rose'
   title: string
   description: string
 }

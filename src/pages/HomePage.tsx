@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { introduction, skills } from '../data/portfolioData'
+import './HomePage.css'
 
 export function HomePage() {
   return (
@@ -13,7 +14,7 @@ export function HomePage() {
         Conoce mis proyectos <span aria-hidden="true">↗</span>
       </Link>
       <ul className="hero__skills" aria-label="Tecnologías que estoy aprendiendo">
-        {skills.map(skill => <li key={skill}>{skill}</li>)}
+        {skills.map(skill => <li className="hero__skill" key={skill}>{skill}</li>)}
       </ul>
     </section>
   )

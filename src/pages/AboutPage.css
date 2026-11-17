@@ -1,0 +1,10 @@
+.profile { display: block; width: 132px; height: 132px; max-width: 100%; margin-top: 2rem; border: 3px solid var(--accent); border-radius: 24px; object-fit: cover; box-shadow: 0 10px 30px var(--glow); }
+.interests { display: grid; gap: 1rem; padding: 0; margin: 2rem 0 0; list-style: none; }
+.interests__item { padding: 1.25rem; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 12px; background: var(--surface); }
+.interests__item--gold { border-top-color: #9b792f; }
+.interests__item--rose { border-top-color: #b16655; }
+.interests__title { margin-bottom: .5rem; font-size: 1rem; }
+.interests__text { margin-bottom: 0; color: var(--muted); font-size: 1rem; }
+
+@media (min-width: 768px) { .profile { width: 160px; height: 160px; } }
+@media (min-width: 1001px) { .interests { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

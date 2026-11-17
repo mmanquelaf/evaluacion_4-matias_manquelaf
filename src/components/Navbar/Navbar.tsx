@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navigation } from '../../data/portfolioData'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import type { MenuKeyboardEvent } from '../../types/interactions'
+import type { MenuKeyboardEvent, NavigationLinkState } from '../../types/interactions'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 import { ReadingProgress } from '../ReadingProgress/ReadingProgress'
 import './Navbar.css'
@@ -31,7 +31,13 @@ export function Navbar() {
     return () => document.removeEventListener('keydown', onKeyDown)
   }, [open])
 
-  function closeMenu(): void { setOpen(false) }
+  function closeMenu(): void {
+    setOpen(false)
+    if (mobile && open) menuRef.current?.focus()
+  }
+  function linkClassName({ isActive }: NavigationLinkState): string {
+    return `navbar__link${isActive ? ' navbar__link--active' : ''}`
+  }
 
   return (
     <header className="navbar">
@@ -46,7 +52,7 @@ export function Navbar() {
       </div>
       <nav className="navbar__links" id="main-nav" aria-label="Navegación principal" hidden={mobile && !open}>
         {navigation.map(item => (
-          <NavLink key={item.path} className="navbar__link" end={item.path === '/'} to={item.path} onClick={closeMenu}>
+          <NavLink key={item.path} className={linkClassName} end={item.path === '/'} to={item.path} onClick={closeMenu}>
             {item.label}
           </NavLink>
         ))}

@@ -1,0 +1,41 @@
+:root {
+  color-scheme: light;
+  --paper: #faf5ee;
+  --ink: #30251f;
+  --muted: #706056;
+  --accent: #a13f29;
+  --line: #dfd0c4;
+  --soft: #f2e5d8;
+  --surface: #fff;
+  --dash: #9a7e6b;
+  --glow: rgba(184, 92, 49, .12);
+}
+
+/* Sin elección guardada, el primer render respeta el tema del dispositivo. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --paper: #1c1714;
+    --ink: #f8eee4;
+    --muted: #c8b5a5;
+    --accent: #f0ab87;
+    --line: #4c3a2f;
+    --soft: #2a211c;
+    --surface: #2a211c;
+    --dash: #aa8973;
+    --glow: rgba(207, 126, 72, .12);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #1c1714;
+  --ink: #f8eee4;
+  --muted: #c8b5a5;
+  --accent: #f0ab87;
+  --line: #4c3a2f;
+  --soft: #2a211c;
+  --surface: #2a211c;
+  --dash: #aa8973;
+  --glow: rgba(207, 126, 72, .12);
+}
