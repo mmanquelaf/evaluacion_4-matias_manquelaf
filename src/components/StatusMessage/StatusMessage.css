@@ -1,0 +1,4 @@
+.status-message { padding: 1.25rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.status-message--error { border-color: var(--accent); }
+.status-message__text { margin-bottom: 0; }
+.status-message__retry { margin-top: 1rem; }

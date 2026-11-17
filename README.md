@@ -27,8 +27,8 @@ npm run preview
 | --- | --- |
 | `/` | Presentación y tecnologías |
 | `/sobre-mi` | Presentación personal, avatar e intereses |
-| `/proyectos` | Proyecto SpaceShooter |
-| `/contacto` | Presentación de la sección de contacto |
+| `/proyectos` | Portafolio EV2 y SpaceShooter con datos de GitHub |
+| `/contacto` | Formulario con validación y envío mediante Formspree |
 | Cualquier otra | Página 404 con retorno al inicio |
 
 Se usa BrowserRouter, Routes, Route, Link y NavLink. Los enlaces internos no
@@ -58,7 +58,6 @@ Esto no equivale a una auditoría completa de accesibilidad.
 
 ## Próximas etapas
 
-- Incorporar la API pública y sus estados de carga, éxito y error.
 - Completar la revisión BEM, accesibilidad, evidencia visual y documentación final.
 
 Al publicar, el alojamiento debe servir `index.html` para las rutas de la SPA;
@@ -109,3 +108,80 @@ Escape, cierre al navegar y al cambiar de tamaño, errores del formulario vacío
 foco del primer error, contador y progreso de lectura. Contacto no mostró desbordamiento
 horizontal a 320 ni a 1280 px y no se observaron errores de consola. No se hizo un envío
 real desde React ni una auditoría completa con lector de pantalla.
+
+
+## API pública elegida: GitHub REST API
+
+Se eligió GitHub porque permite mostrar proyectos públicos reales del mismo autor,
+complementando la presentación de SpaceShooter y manteniendo actualizado el portafolio.
+No se utilizan claves ni credenciales.
+
+- URL base: https://api.github.com
+- Endpoint: GET /users/mmanquelaf/repos
+- Consulta completa: https://api.github.com/users/mmanquelaf/repos?sort=updated&per_page=6
+- sort=updated: ordena por actualización; la dirección descendente es la predeterminada.
+- per_page=6: solicita como máximo seis resultados de la primera página.
+- Cabecera: Accept: application/vnd.github+json.
+
+Contrato documentado por GitHub:
+https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user
+
+### JSON esperado
+
+La respuesta es un arreglo de repositorios. Este es un ejemplo ilustrativo del
+subconjunto de propiedades utilizado; no representa una captura real de la API:
+
+```json
+[
+  {
+    "id": 123,
+    "name": "ejemplo",
+    "description": null,
+    "html_url": "https://github.com/mmanquelaf/ejemplo",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "updated_at": "2026-11-17T12:00:00Z"
+  }
+]
+```
+
+GitHubRepo define esos campos en src/types/api.ts. description y language pueden ser
+null y tienen texto alternativo visible. El JSON entra como unknown y se valida
+antes de renderizarlo: tipos de campos, contadores enteros no negativos, fechas y
+enlaces HTTPS de repositorio en github.com. Una respuesta incompatible se presenta
+como error, sin convertirla mediante una aserción de tipos sin validar.
+
+### Estados, cancelación y proyectos seleccionados
+
+useFetchApi realiza la consulta con fetch y useEffect y expone data, loading, error
+y retry. Comprueba HTTP antes de interpretar JSON y muestra carga, error y reintento.
+La limpieza del efecto cancela la petición y el temporizador con AbortController.
+El límite de espera es de 20 segundos y una respuesta anterior no puede reemplazar
+la actual. No se realizan consultas periódicas ni reintentos automáticos.
+
+Solo se muestran dos tarjetas: Portafolio EV2 (portafolio) y SpaceShooter
+(EID-SpaceShooter). No hay buscador ni selector de lenguaje. Los nombres de repositorio
+se configuran junto a cada ProjectItem en src/data/portfolioData.ts; los otros
+repositorios recibidos se omiten y SpaceShooter no se duplica en otra lista.
+
+La consulta conserva per_page=6, pero esa cantidad no obliga a mostrar seis tarjetas.
+Se seleccionan los datos de esos dos proyectos dentro de la respuesta. Cada tarjeta
+integra nombre real del repositorio, descripción de GitHub cuando está disponible,
+lenguaje principal, estrellas, fecha y enlace. Si description es null se conserva la
+explicación del proyecto que ya existía en el portafolio.
+
+Los enlaces y descripciones locales siguen disponibles durante carga o error. Si
+alguno de los repositorios no está entre los resultados de la consulta reciente,
+se informa que faltan datos y no se inventan estadísticas. El reintento dirige el
+foco a la región de proyectos.
+
+### Verificación de la API
+
+Pasaron build, lint y las 26 pruebas del proyecto: nueve del formulario y diecisiete
+para la API y los dos proyectos. Las pruebas usan respuestas simuladas y cubren
+carga, selección de EV2/EID, ausencia de tarjetas duplicadas y controles de búsqueda,
+datos nulos, HTTP 403/404/429/500, JSON incompatible, red, reintento, timeout,
+cancelación y respuestas que llegan fuera de orden.
+
+La consulta real de GitHub se comprobó el 17 de noviembre de 2026. Los datos son
+externos y pueden cambiar; no se garantiza su disponibilidad permanente.

@@ -23,7 +23,17 @@ export const interests: Interest[] = [
 
 export const projects: ProjectItem[] = [
   {
+    id: 'portafolio',
+    title: 'Portafolio · EV2',
+    repositoryName: 'portafolio',
+    description: 'Mi portafolio personal de aprendizaje, creado con HTML, CSS y JavaScript, con diseño responsive y modo claro y oscuro.',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    urlRepo: 'https://github.com/mmanquelaf/portafolio',
+    category: 'Desarrollo web · Evaluación 2',
+  },
+  {
     id: 'spaceshooter',
+    repositoryName: 'EID-SpaceShooter',
     title: 'SpaceShooter',
     description: 'Un juego espacial 2D con oleadas de enemigos, un jefe final y disparos con trayectorias rectas, parabólicas y elípticas.',
     technologies: ['Python', 'Pygame'],

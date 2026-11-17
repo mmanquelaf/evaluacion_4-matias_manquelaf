@@ -1,3 +1,4 @@
+import type { GitHubRepo } from './api'
 import type { ReactNode } from 'react'
 
 export interface NavigationItem {
@@ -17,11 +18,13 @@ export interface ProjectItem {
   description: string
   technologies: string[]
   urlRepo: string
+  repositoryName: string
   category: string
 }
 
 export interface ProjectCardProps {
   project: ProjectItem
+  repo?: GitHubRepo
 }
 
 export interface PageSectionProps {
