@@ -30,3 +30,11 @@
   .project-card { padding: 1.5rem; }
   .project-card__art { height: 180px; }
 }
+
+
+.project-card__art--portfolio { background: radial-gradient(ellipse at 15% 20%, #9b792f, transparent 65%), #30251f; }
+.project-card__art--portfolio .project-card__star { font-family: monospace; font-size: 3rem; transform: none; }
+.project-card__github { margin-bottom: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.project-card__repo-name { margin-bottom: .5rem; overflow-wrap: anywhere; font-size: .9rem; font-weight: 700; }
+.project-card__metadata { display: flex; flex-wrap: wrap; gap: .5rem 1rem; padding: 0; margin: 0 0 .5rem; list-style: none; font-size: .85rem; }
+.project-card__updated { margin: 0; color: var(--muted); font-size: .8rem; }
