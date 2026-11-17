@@ -1,7 +1,8 @@
 # Validación del portafolio
 
-Fecha: 17 de noviembre de 2026. Revisión local; no acredita por sí sola conformidad
-completa con WCAG ni una evaluación con dispositivos físicos o lector de pantalla.
+Fecha: 17 de noviembre de 2026. Revisión local y comprobación de la publicación.
+No acredita por sí sola conformidad completa con WCAG ni una evaluación con
+dispositivos físicos o lector de pantalla.
 
 ## Comprobaciones ejecutadas
 
@@ -18,6 +19,7 @@ completa con WCAG ni una evaluación con dispositivos físicos o lector de panta
 | Tarjetas | Dos proyectos; elevación de 5 px y foco visible comprobados al enfocar el enlace. |
 | Formulario | Campos inválidos, contador y estados comprobados; sin envío real. |
 | API real | GitHub devolvió datos de portafolio y EID-SpaceShooter. |
+| Publicación manual | GitHub Pages publica la compilación de gh-pages; se revisaron Inicio, Trabajos, Contacto y la recarga directa de Proyectos. |
 | Consola del navegador | Sin errores ni advertencias observados durante la revisión. |
 
 Las nueve pruebas del formulario cubren validación, límites, éxito, errores HTTP y
@@ -53,10 +55,16 @@ operativo durante esta revisión.
 
 - [Referencia del portafolio estático actualizado](captura-e2.png).
 - [Inicio de la aplicación React revisada](captura-react-inicio.jpg).
+- [Versión publicada en GitHub Pages](captura-publicacion.png).
 
 ## Límites y revisión pendiente
 
 No se ejecutó Lighthouse ni una auditoría integral con lector de pantalla. La
-revisión de tamaños usa el navegador y no sustituye dispositivos físicos. Tampoco
-se confirmó recepción de un mensaje desde la versión React ni se publicó la SPA.
-El alojamiento final deberá resolver las rutas de BrowserRouter hacia `index.html`.
+revisión de tamaños usa el navegador y no sustituye dispositivos físicos. Sigue
+pendiente confirmar la recepción de un mensaje real desde la versión React publicada.
+
+El sitio está publicado en https://mmanquelaf.github.io/evaluacion_4-matias_manquelaf/.
+La compilación incluye 404.html como copia de index.html para renderizar las rutas
+de BrowserRouter al abrirlas directamente; el servidor de Pages puede conservar
+un estado HTTP 404 en esas peticiones. No se realizaron envíos reales del formulario
+durante la verificación de la publicación.

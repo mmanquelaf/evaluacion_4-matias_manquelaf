@@ -91,6 +91,11 @@ No se atribuye al estudiante una revisión manual de cada línea ni un envío re
 React que no se haya documentado. El resultado de estas comprobaciones está detallado
 en `docs/VALIDACION.md` y debe acompañarse de la revisión y explicación del estudiante.
 
+Para la publicación se mantuvo el mismo acuerdo: el asistente ajustó la ruta base
+de Vite y preparó la compilación; el estudiante creó la rama de publicación y subió
+manualmente los archivos a GitHub Pages. No se añadió un workflow propio de despliegue.
+La comprobación posterior incluyó navegación y recarga de una ruta publicada.
+
 ## 6. Reflexión crítica final
 
 La idea central de esta migración es que React organiza la interfaz a partir de
