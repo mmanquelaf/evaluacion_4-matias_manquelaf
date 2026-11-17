@@ -42,7 +42,8 @@ ruta se actualizan el título de la pestaña, el foco del contenido y el desplaz
 - `src/data/portfolioData.ts`: contenido estático separado de los componentes.
 - `src/types/index.ts`: interfaces de datos y propiedades.
 - `src/assets/`: avatar recuperado del portafolio actualizado.
-- `src/index.css`: estilos generales y adaptación responsive.
+- `src/index.css`: entrada a estilos globales; los componentes y páginas importan sus propios estilos BEM.
+- `src/styles/`: variables de tema y estilos base compartidos.
 
 Se conserva el contenido, la paleta crema/terracota y café/durazno, y el avatar
 del portafolio actualizado. El tema sigue la preferencia del dispositivo hasta elegir uno con el selector; la elección se conserva en localStorage cuando está disponible.
@@ -55,10 +56,6 @@ el retorno al inicio, la recarga directa de `/proyectos`, el retroceso y la
 activación de un enlace con Enter. No se observaron errores de consola ni
 desbordamiento horizontal en las cuatro vistas a 320 px. El avatar cargó correctamente.
 Esto no equivale a una auditoría completa de accesibilidad.
-
-## Próximas etapas
-
-- Completar la revisión BEM, accesibilidad, evidencia visual y documentación final.
 
 Al publicar, el alojamiento debe servir `index.html` para las rutas de la SPA;
 BrowserRouter necesita esa configuración para abrir o recargar enlaces directos.
@@ -185,3 +182,33 @@ cancelación y respuestas que llegan fuera de orden.
 
 La consulta real de GitHub se comprobó el 17 de noviembre de 2026. Los datos son
 externos y pueden cambiar; no se garantiza su disponibilidad permanente.
+
+
+## Estilos BEM, movimiento y accesibilidad
+
+Los colores están centralizados en src/styles/tokens.css. Los estilos base están
+separados de los de Layout, Navbar, PageSection, ProjectCard, ContactForm y cada vista.
+Se utilizan elementos y modificadores BEM explícitos para los estados y variantes.
+Las tarjetas recuperan elevación, giro decorativo y respuesta al foco; el movimiento
+solo se activa bajo prefers-reduced-motion: no-preference.
+
+Se reforzó el contraste del borde de los campos claros de 2,94:1 a 3,48:1.
+Se comprobó navegación por teclado, foco visible y adaptación a 320, 768 y 1280 px.
+El detalle y las limitaciones están en [la validación](docs/VALIDACION.md).
+No se declara una auditoría completa de WCAG ni resultados de Lighthouse no medidos.
+
+## Referencia E2 y documentación
+
+La referencia es el portafolio estático actualizado antes de la migración, con los
+cambios acordados en el chat anterior. Su repositorio es
+https://github.com/mmanquelaf/portafolio y se mantiene separado de esta aplicación.
+
+- [Captura de referencia en alta resolución](docs/captura-e2.png).
+- [Inicio actual de React](docs/captura-react-inicio.jpg).
+- [INVENTARIO.md](INVENTARIO.md): secciones, scripts y estilos recuperados y refactorizados.
+- [uso_ia.md](uso_ia.md): herramientas, propósito, prompts, resultados, ajustes y reflexión crítica.
+
+La captura E2 procede de la imagen de escritorio guardada el 17 de noviembre de
+2026 en el proyecto estático; se convirtió a PNG sin redimensionarla. Corresponde
+al portafolio actualizado de referencia, no a una reconstrucción de una entrega
+histórica diferente.

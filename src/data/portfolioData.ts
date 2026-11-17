@@ -16,9 +16,9 @@ export const aboutParagraphs: string[] = [
 ]
 
 export const interests: Interest[] = [
-  { title: 'Programación', description: 'Entender la lógica y encontrar distintas maneras de resolver un problema.' },
-  { title: 'Desarrollo web', description: 'Aprender a construir páginas claras, accesibles y fáciles de usar.' },
-  { title: 'Tecnología', description: 'Explorar nuevas herramientas y comprender cómo funcionan.' },
+  { tone: 'accent', title: 'Programación', description: 'Entender la lógica y encontrar distintas maneras de resolver un problema.' },
+  { tone: 'gold', title: 'Desarrollo web', description: 'Aprender a construir páginas claras, accesibles y fáciles de usar.' },
+  { tone: 'rose', title: 'Tecnología', description: 'Explorar nuevas herramientas y comprender cómo funcionan.' },
 ]
 
 export const projects: ProjectItem[] = [

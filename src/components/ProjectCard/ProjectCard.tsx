@@ -8,14 +8,14 @@ export function ProjectCard({ project, repo }: ProjectCardProps) {
   return (
     <article className="project-card" aria-labelledby={`project-${project.id}`}>
       <div className={`project-card__art${isPortfolio ? ' project-card__art--portfolio' : ''}`} aria-hidden="true">
-        <span className="project-card__star">{isPortfolio ? '</>' : '✦'}</span>
+        <span className={`project-card__symbol project-card__symbol--${isPortfolio ? 'code' : 'star'}`}>{isPortfolio ? '</>' : '✦'}</span>
         <span className="project-card__caption">{isPortfolio ? 'PORTAFOLIO / EV2' : 'SPACE / SHOOTER'}</span>
       </div>
       <p className="project-card__category">{project.category}</p>
       <h2 className="project-card__title" id={`project-${project.id}`}>{project.title}</h2>
-      <p>{repo?.description?.trim() || project.description}</p>
+      <p className="project-card__description">{repo?.description?.trim() || project.description}</p>
       <ul className="project-card__tags" aria-label="Tecnologías">
-        {project.technologies.map(technology => <li key={technology}>{technology}</li>)}
+        {project.technologies.map(technology => <li className="project-card__tag" key={technology}>{technology}</li>)}
       </ul>
       {repo && (
         <div className="project-card__github">
@@ -31,7 +31,7 @@ export function ProjectCard({ project, repo }: ProjectCardProps) {
       )}
       <a className="project-card__link" href={repo?.html_url ?? project.urlRepo} target="_blank" rel="noopener noreferrer">
         Ver repositorio de {project.title}
-        <span aria-hidden="true">↗</span>
+        <span className="project-card__arrow" aria-hidden="true">↗</span>
         <span className="visually-hidden"> (se abre en otra pestaña)</span>
       </a>
     </article>

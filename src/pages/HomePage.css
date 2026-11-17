@@ -1,0 +1,12 @@
+.hero { max-width: 960px; padding-block: 3.25rem; }
+.hero__title { margin-bottom: 1.8rem; font-size: clamp(2.35rem, 9.5vw, 3.8rem); font-weight: 600; line-height: 1.06; letter-spacing: -.04em; }
+.hero__accent { color: var(--accent); }
+.hero__text { max-width: 39rem; color: var(--muted); font-size: 1.1rem; }
+.hero__skills { display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; margin: 2rem 0 0; list-style: none; }
+.hero__skill { padding: .3rem .8rem; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: .8rem; }
+
+@media (min-width: 768px) {
+  .hero { padding-block: clamp(4rem, 9vw, 7rem); }
+  .hero__title { font-size: clamp(2.8rem, 7.5vw, 6rem); }
+  .hero__text { font-size: 1.2rem; }
+}

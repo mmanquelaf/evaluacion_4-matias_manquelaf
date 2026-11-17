@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { navigation } from '../../data/portfolioData'
 import { Navbar } from '../Navbar/Navbar'
+import './Layout.css'
 
 export function Layout() {
   const { pathname } = useLocation()
@@ -24,8 +25,8 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="footer">
-        <p>Matías · Portafolio de aprendizaje</p>
-        <Link to="/">Volver al inicio ↑</Link>
+        <p className="footer__copy">Matías · Portafolio de aprendizaje</p>
+        <Link className="footer__link" to="/">Volver al inicio ↑</Link>
       </footer>
     </>
   )
