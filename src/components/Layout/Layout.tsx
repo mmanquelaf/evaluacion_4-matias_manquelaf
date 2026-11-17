@@ -19,7 +19,7 @@ export function Layout() {
       <button className="skip-link" type="button" onClick={() => mainRef.current?.focus()}>
         Saltar al contenido
       </button>
-      <Navbar />
+      <Navbar key={pathname} />
       <main className="site-main" ref={mainRef} tabIndex={-1}>
         <Outlet />
       </main>
