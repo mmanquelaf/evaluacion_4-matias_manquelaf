@@ -77,3 +77,22 @@ cabecera fija. Las tarjetas responden también al foco del teclado.
 
 El detalle de las comprobaciones y sus límites está en [VALIDACION.md](docs/VALIDACION.md).
 La asistencia utilizada se documenta en [uso_ia.md](uso_ia.md).
+
+
+## Detalle de refactorización y correcciones
+
+| Elemento de la E2 o de la migración | Solución aplicada |
+| --- | --- |
+| Estilos distribuidos entre styles.css y sucesivos ajustes de layout.css | Variables centralizadas y CSS separado por componente y vista. |
+| Clase project__status dentro de la tarjeta | Elemento BEM project-card__category, asociado al bloque correcto. |
+| Estilos de etiquetas y variantes por posición en listas | Elementos como project-card__tag y modificadores explícitos para intereses y campos de ancho completo. |
+| Borde claro de campos con contraste 2,94:1 | Color ajustado a una relación de 3,48:1 respecto al fondo de entrada. |
+| Navegación de una página mediante anclas | Rutas declarativas, título por vista, ruta activa y página 404. |
+| Scripts que actualizaban directamente los controles del formulario | Valores y errores controlados en React; ContactField recibe datos y callbacks del estado compartido. |
+| Eventos del navegador tipados directamente dentro de hooks | Alias de evento y tipos de estado centralizados en src/types/. |
+| Título de pestaña incorrecto con barra final en una ruta válida | Normalización del pathname antes de buscar el título; prueba de regresión para /sobre-mi/, /sobre-mi y /SOBRE-MI. |
+
+La revisión final del 18 de noviembre de 2026 pasó compilación, ESLint y 32 pruebas.
+Las seis pruebas añadidas comprueban tema global, persistencia, almacenamiento
+bloqueado, limpieza del listener y títulos de rutas. Se conserva el contrato de API,
+el comportamiento del formulario y la selección de dos proyectos acordada.

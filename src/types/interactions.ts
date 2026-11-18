@@ -6,6 +6,10 @@ export type NavigationLinkState = Pick<NavLinkRenderProps, 'isActive'>
 export type Theme = 'light' | 'dark'
 export type ThemePreference = Theme | null
 export type MenuKeyboardEvent = globalThis.KeyboardEvent
+export type MediaQueryChangeEvent = globalThis.MediaQueryListEvent
+export type MediaQueryState = boolean
+export type MenuOpenState = boolean
+export type ReadingProgressState = number
 export interface ThemeValue {
   theme: Theme
   toggleTheme: () => void

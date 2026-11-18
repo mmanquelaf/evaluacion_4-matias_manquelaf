@@ -211,8 +211,9 @@ foco a la región de proyectos.
 
 ### Verificación de la API
 
-Pasaron build, lint y las 26 pruebas del proyecto: nueve del formulario y diecisiete
-para la API y los dos proyectos. Las pruebas usan respuestas simuladas y cubren
+La revisión del 18 de noviembre de 2026 completó build y lint correctamente.
+Pasaron las 32 pruebas del proyecto: nueve del formulario, diecisiete de la API y
+los proyectos, tres del tema global y tres de títulos de rutas. Las pruebas usan respuestas simuladas y cubren
 carga, selección de EV2/EID, ausencia de tarjetas duplicadas y controles de búsqueda,
 datos nulos, HTTP 403/404/429/500, JSON incompatible, red, reintento, timeout,
 cancelación y respuestas que llegan fuera de orden.
@@ -249,3 +250,21 @@ La captura E2 procede de la imagen de escritorio guardada el 17 de noviembre de
 2026 en el proyecto estático; se convirtió a PNG sin redimensionarla. Corresponde
 al portafolio actualizado de referencia, no a una reconstrucción de una entrega
 histórica diferente.
+
+
+## Revisión de código y tipado
+
+TypeScript funciona con strict habilitado y ESLint rechaza any explícito. Las props,
+respuestas de API, estados y eventos de la aplicación se describen en src/types/.
+Los eventos de cambio de preferencia del navegador tienen el alias centralizado
+MediaQueryChangeEvent; los estados simples de menú, consulta y progreso también
+tienen sus tipos junto al resto de contratos de la aplicación.
+
+La revisión del 18 de noviembre de 2026 corrigió el título de la pestaña para rutas
+válidas con barra final o con diferencias de mayúsculas, como /sobre-mi/ y /SOBRE-MI.
+Las pruebas comprueban además que el tema sigue al sistema hasta elegir uno manual,
+que conserva la preferencia guardada y que funciona si localStorage está bloqueado.
+
+La evidencia de accesibilidad está en [docs/VALIDACION.md](docs/VALIDACION.md): incluye
+recorrido de teclado y relaciones de contraste calculadas. Es una validación manual
+documentada; no se presentan puntuaciones de Lighthouse que no se hayan medido.

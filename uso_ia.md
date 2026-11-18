@@ -6,9 +6,10 @@ durante esa etapa, con responsabilidad del estudiante sobre el trabajo entregado
 
 ## 1. Herramientas utilizadas
 
-Se utilizó OpenAI Codex, mediante ChatGPT, para proponer e implementar código,
-revisarlo y preparar documentación. La versión exacta del modelo no quedó registrada
-en el proyecto; no se atribuye una versión concreta sin poder verificarla.
+Se utilizó OpenAI Codex, mediante ChatGPT, con el modelo **Sol** y nivel de
+razonamiento **Medio**, según la configuración indicada por el estudiante. La
+asistencia se empleó para proponer e implementar código, revisarlo y preparar
+documentación.
 
 La ejecución y comprobación se hicieron con las herramientas del proyecto: TypeScript,
 Vite, ESLint, Vitest y Testing Library, además de revisión en navegador. Son herramientas
@@ -82,7 +83,7 @@ Las verificaciones de código se ejecutaron con asistencia en el entorno local:
 
 - `npm run build`: comprobación de tipos y empaquetado de producción.
 - `npm run lint`: revisión de reglas de React y TypeScript.
-- `npm test`: 26 pruebas de formulario, contrato de API y ciclo de vida asíncrono.
+- `npm test`: 32 pruebas de formulario, API, tema global y títulos de navegación.
 - Revisión en navegador de navegación, tema, menú, formularios, foco, tarjetas y anchos
   de 320, 768 y 1280 px.
 - Comprobación de una consulta real de GitHub; los fallos se probaron con simulaciones.
@@ -96,6 +97,12 @@ Para la publicación se mantuvo el mismo acuerdo: el asistente ajustó la ruta b
 de Vite y preparó la compilación; el estudiante creó la rama de publicación y subió
 manualmente los archivos a GitHub Pages. No se añadió un workflow propio de despliegue.
 La comprobación posterior incluyó navegación y recarga de una ruta publicada.
+
+En la revisión del 18 de noviembre se centralizaron los tipos de eventos y estados
+simples y se corrigió el título de pestaña de rutas con barra final. Se añadieron
+pruebas del tema y de navegación; pasaron las 32 pruebas, compilación y ESLint.
+Se completó además la identificación de la herramienta con modelo Sol y nivel Medio,
+según la configuración indicada por el estudiante.
 
 ## 6. Reflexión crítica final
 

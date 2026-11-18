@@ -8,6 +8,8 @@ export interface GitHubRepo {
   updated_at: string
 }
 
+export type FetchAttemptState = number
+
 export type ApiDecoder<T> = (value: unknown) => T
 export interface FetchState<T> {
   data: T | null
