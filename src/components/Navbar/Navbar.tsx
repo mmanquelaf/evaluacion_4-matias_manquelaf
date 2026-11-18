@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navigation } from '../../data/portfolioData'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import type { MenuKeyboardEvent, NavigationLinkState } from '../../types/interactions'
+import type { MenuKeyboardEvent, MenuOpenState, NavigationLinkState } from '../../types/interactions'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 import { ReadingProgress } from '../ReadingProgress/ReadingProgress'
 import './Navbar.css'
 
 export function Navbar() {
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState<MenuOpenState>(false)
   const mobile: boolean = useMediaQuery('(max-width: 700px)')
   const menuRef = useRef<HTMLButtonElement>(null)
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { apiTimeoutMs } from '../data/apiData'
 import { fetchApi } from '../services/apiService'
-import type { ApiDecoder, FetchResult, FetchState } from '../types/api'
+import type { ApiDecoder, FetchAttemptState, FetchResult, FetchState } from '../types/api'
 
 export function useFetchApi<T>(url: string, decode: ApiDecoder<T>): FetchResult<T> {
   const [state, setState] = useState<FetchState<T>>({ data: null, loading: true, error: null })
-  const [attempt, setAttempt] = useState<number>(0)
+  const [attempt, setAttempt] = useState<FetchAttemptState>(0)
 
   useEffect(() => {
     const controller: AbortController = new AbortController()

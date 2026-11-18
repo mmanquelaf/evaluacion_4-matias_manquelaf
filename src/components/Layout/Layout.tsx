@@ -9,7 +9,8 @@ export function Layout() {
   const mainRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const pageTitle: string = navigation.find(item => item.path === pathname)?.pageTitle ?? 'Página no encontrada'
+    const normalizedPath: string = pathname.replace(/\/+$/, '').toLowerCase() || '/'
+    const pageTitle: string = navigation.find(item => item.path === normalizedPath)?.pageTitle ?? 'Página no encontrada'
     document.title = `${pageTitle} · Matías`
     window.scrollTo({ top: 0, behavior: 'instant' })
     mainRef.current?.focus({ preventScroll: true })

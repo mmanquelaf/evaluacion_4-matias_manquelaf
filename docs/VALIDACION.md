@@ -1,6 +1,7 @@
 # Validación del portafolio
 
-Revisión técnica: 17 de noviembre de 2026. Revisión local y comprobación de la publicación.
+Revisión visual y de publicación: 17 de noviembre de 2026.
+Revisión adicional de código y pruebas: 18 de noviembre de 2026.
 Actualización documental: 18 de noviembre de 2026.
 No acredita por sí sola conformidad completa con WCAG ni una evaluación con
 dispositivos físicos o lector de pantalla.
@@ -11,7 +12,7 @@ dispositivos físicos o lector de pantalla.
 | --- | --- |
 | TypeScript y producción (`npm run build`) | Correcto. |
 | Reglas de código (`npm run lint`) | Correcto. |
-| Pruebas (`npm test`) | 26 pruebas correctas, en cinco archivos. |
+| Pruebas (`npm test`) | 32 pruebas correctas, en siete archivos. |
 | Rutas y 404 | Navegación, ruta activa, retorno al inicio, recarga y retroceso revisados. |
 | Vistas a 320, 768 y 1280 px | Inicio, Sobre mí, Trabajos, Contacto y 404 sin desbordamiento horizontal en los anchos comprobados. |
 | Tema | Claro y oscuro revisados; preferencia conservada tras recargar. |
@@ -26,7 +27,9 @@ dispositivos físicos o lector de pantalla.
 Las nueve pruebas del formulario cubren validación, límites, éxito, errores HTTP y
 de red, duplicados, timeout y cancelación. Las diecisiete restantes cubren la API,
 selección de dos proyectos, JSON inválido, estados, reintento y respuestas fuera de orden.
-Las pruebas usan respuestas simuladas y no envían correos.
+Se añadieron tres pruebas del tema global y tres de títulos de rutas. La batería
+completa suma 32 pruebas. Las peticiones del formulario y de la API usan respuestas
+simuladas y no envían correos.
 
 ## Contraste calculado
 
@@ -69,3 +72,13 @@ La compilación incluye 404.html como copia de index.html para renderizar las ru
 de BrowserRouter al abrirlas directamente; el servidor de Pages puede conservar
 un estado HTTP 404 en esas peticiones. No se realizaron envíos reales del formulario
 durante la verificación de la publicación.
+
+
+## Revisión adicional del código
+
+El 18 de noviembre de 2026 pasaron TypeScript/Vite, ESLint y las 32 pruebas.
+Se comprobaron la centralización de tipos, ausencia de any explícito, limpieza de
+listeners y peticiones, persistencia del tema y títulos de rutas con barra final o
+mayúsculas. La compilación preparada conserva el respaldo dist/404.html.
+Esta revisión adicional es de código y pruebas automatizadas; no se atribuye a ella
+una nueva auditoría visual o con lector de pantalla.

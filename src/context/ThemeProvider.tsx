@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { Theme, ThemePreference, ThemeProviderProps } from '../types/interactions'
+import type { MediaQueryChangeEvent, Theme, ThemePreference, ThemeProviderProps } from '../types/interactions'
 import { ThemeContext } from './theme'
 
 function readPreference(): ThemePreference {
@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     const query: MediaQueryList = matchMedia('(prefers-color-scheme: dark)')
-    const update = (event: MediaQueryListEvent): void => setSystemTheme(event.matches ? 'dark' : 'light')
+    const update = (event: MediaQueryChangeEvent): void => setSystemTheme(event.matches ? 'dark' : 'light')
     query.addEventListener('change', update)
     return () => query.removeEventListener('change', update)
   }, [])

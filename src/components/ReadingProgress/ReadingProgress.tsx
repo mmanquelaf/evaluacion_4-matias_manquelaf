@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import type { ReadingProgressState } from '../../types/interactions'
 import './ReadingProgress.css'
 
 export function ReadingProgress() {
-  const [progress, setProgress] = useState<number>(0)
+  const [progress, setProgress] = useState<ReadingProgressState>(0)
   const { pathname } = useLocation()
 
   useEffect(() => {
