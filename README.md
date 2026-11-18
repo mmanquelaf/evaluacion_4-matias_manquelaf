@@ -57,8 +57,44 @@ activación de un enlace con Enter. No se observaron errores de consola ni
 desbordamiento horizontal en las cuatro vistas a 320 px. El avatar cargó correctamente.
 Esto no equivale a una auditoría completa de accesibilidad.
 
-Al publicar, el alojamiento debe servir `index.html` para las rutas de la SPA;
-BrowserRouter necesita esa configuración para abrir o recargar enlaces directos.
+## Publicación manual en GitHub Pages
+
+Sitio publicado: https://mmanquelaf.github.io/evaluacion_4-matias_manquelaf/
+
+`main` conserva el código fuente y `gh-pages` los archivos compilados de publicación.
+Vite utiliza `base: '/evaluacion_4-matias_manquelaf/'`, también compartida con
+BrowserRouter mediante `import.meta.env.BASE_URL`. Para desarrollo y preview se abre
+la URL que muestra Vite en la terminal, incluida esa ruta del proyecto.
+
+Para preparar una actualización, desde PowerShell en la carpeta del proyecto:
+
+```powershell
+npm run build
+Copy-Item -LiteralPath dist/index.html -Destination dist/404.html -Force
+npm run preview
+```
+
+1. Revisar la compilación con preview.
+2. En GitHub, seleccionar la rama `gh-pages` y abrir **Add file → Upload files**.
+3. Subir todo el contenido de `dist/` a la raíz de esa rama: `index.html`, `404.html`,
+   la carpeta `assets/` y los demás recursos. La carpeta `dist/` no se sube como contenedor.
+4. Confirmar la actualización con **Commit changes**.
+5. En **Settings → Pages**, elegir **Deploy from a branch → gh-pages → / (root)**.
+6. Esperar a que termine la publicación y comprobar el sitio.
+
+Estos pasos publican una compilación preparada localmente; no requieren un archivo
+propio de GitHub Actions. Cada nueva compilación reemplaza `dist/`, por lo que se
+vuelve a copiar `index.html` como `404.html` antes de subirla.
+
+El respaldo `404.html` permite que BrowserRouter renderice una ruta abierta o
+recargada directamente. GitHub Pages puede responder con estado HTTP 404 en esa
+primera petición, aunque la aplicación renderice correctamente la vista solicitada.
+La navegación interna utiliza React Router.
+
+La publicación se comprobó el 17 de noviembre de 2026: cargaron Inicio, Trabajos,
+Contacto y la recarga directa de Proyectos. Los dos proyectos recibieron datos de
+GitHub. [Captura del sitio publicado](docs/captura-publicacion.png).
+
 
 
 ## Interacciones migradas a React
@@ -103,8 +139,9 @@ timeout y cancelación al desmontar.
 En el navegador se comprobaron persistencia del tema tras recargar, ambos temas, menú,
 Escape, cierre al navegar y al cambiar de tamaño, errores del formulario vacío,
 foco del primer error, contador y progreso de lectura. Contacto no mostró desbordamiento
-horizontal a 320 ni a 1280 px y no se observaron errores de consola. No se hizo un envío
-real desde React ni una auditoría completa con lector de pantalla.
+horizontal a 320 ni a 1280 px y no se observaron errores de consola. Las pruebas automatizadas usaron respuestas simuladas. El propietario confirmó
+además un envío real desde la web publicada y la recepción del mensaje en su correo.
+No se realizó una auditoría completa con lector de pantalla.
 
 
 ## API pública elegida: GitHub REST API
@@ -204,7 +241,7 @@ cambios acordados en el chat anterior. Su repositorio es
 https://github.com/mmanquelaf/portafolio y se mantiene separado de esta aplicación.
 
 - [Captura de referencia en alta resolución](docs/captura-e2.png).
-- [Inicio actual de React](docs/captura-react-inicio.jpg).
+- [Captura actual del sitio publicado](docs/captura-publicacion.png).
 - [INVENTARIO.md](INVENTARIO.md): secciones, scripts y estilos recuperados y refactorizados.
 - [uso_ia.md](uso_ia.md): herramientas, propósito, prompts, resultados, ajustes y reflexión crítica.
 
