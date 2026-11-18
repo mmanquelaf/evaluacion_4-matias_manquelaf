@@ -1,6 +1,7 @@
 # Validación del portafolio
 
-Fecha: 17 de noviembre de 2026. Revisión local y comprobación de la publicación.
+Revisión técnica: 17 de noviembre de 2026. Revisión local y comprobación de la publicación.
+Actualización documental: 18 de noviembre de 2026.
 No acredita por sí sola conformidad completa con WCAG ni una evaluación con
 dispositivos físicos o lector de pantalla.
 
@@ -17,7 +18,7 @@ dispositivos físicos o lector de pantalla.
 | Menú móvil | Apertura, Escape, cierre al navegar y al cambiar de ancho revisados. |
 | Teclado | Salto al contenido, activación de enlaces, retorno de foco al menú y primer campo inválido revisados. |
 | Tarjetas | Dos proyectos; elevación de 5 px y foco visible comprobados al enfocar el enlace. |
-| Formulario | Campos inválidos, contador y estados comprobados; sin envío real. |
+| Formulario | Campos inválidos, contador y estados comprobados. El propietario confirmó también el envío real desde la web publicada y la recepción por correo. |
 | API real | GitHub devolvió datos de portafolio y EID-SpaceShooter. |
 | Publicación manual | GitHub Pages publica la compilación de gh-pages; se revisaron Inicio, Trabajos, Contacto y la recarga directa de Proyectos. |
 | Consola del navegador | Sin errores ni advertencias observados durante la revisión. |
@@ -54,14 +55,14 @@ operativo durante esta revisión.
 ## Evidencia visual
 
 - [Referencia del portafolio estático actualizado](captura-e2.png).
-- [Inicio de la aplicación React revisada](captura-react-inicio.jpg).
 - [Versión publicada en GitHub Pages](captura-publicacion.png).
 
-## Límites y revisión pendiente
+## Límites de la revisión
 
 No se ejecutó Lighthouse ni una auditoría integral con lector de pantalla. La
-revisión de tamaños usa el navegador y no sustituye dispositivos físicos. Sigue
-pendiente confirmar la recepción de un mensaje real desde la versión React publicada.
+revisión de tamaños usa el navegador y no sustituye dispositivos físicos. El envío
+real y su recepción fueron confirmados por el propietario; las pruebas automáticas
+y la comprobación del asistente utilizaron respuestas simuladas, sin enviar correos.
 
 El sitio está publicado en https://mmanquelaf.github.io/evaluacion_4-matias_manquelaf/.
 La compilación incluye 404.html como copia de index.html para renderizar las rutas

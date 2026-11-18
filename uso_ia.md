@@ -87,9 +87,10 @@ Las verificaciones de código se ejecutaron con asistencia en el entorno local:
   de 320, 768 y 1280 px.
 - Comprobación de una consulta real de GitHub; los fallos se probaron con simulaciones.
 
-No se atribuye al estudiante una revisión manual de cada línea ni un envío real desde
-React que no se haya documentado. El resultado de estas comprobaciones está detallado
-en `docs/VALIDACION.md` y debe acompañarse de la revisión y explicación del estudiante.
+El resultado de estas comprobaciones está detallado en `docs/VALIDACION.md`.
+El estudiante confirmó además el envío de un mensaje real desde la web publicada y
+su recepción en el correo, de forma independiente a las pruebas simuladas. La revisión
+y explicación personal del código forman parte de su responsabilidad sobre la entrega.
 
 Para la publicación se mantuvo el mismo acuerdo: el asistente ajustó la ruta base
 de Vite y preparó la compilación; el estudiante creó la rama de publicación y subió

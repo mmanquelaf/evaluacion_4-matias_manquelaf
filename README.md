@@ -139,8 +139,9 @@ timeout y cancelación al desmontar.
 En el navegador se comprobaron persistencia del tema tras recargar, ambos temas, menú,
 Escape, cierre al navegar y al cambiar de tamaño, errores del formulario vacío,
 foco del primer error, contador y progreso de lectura. Contacto no mostró desbordamiento
-horizontal a 320 ni a 1280 px y no se observaron errores de consola. No se hizo un envío
-real desde React ni una auditoría completa con lector de pantalla.
+horizontal a 320 ni a 1280 px y no se observaron errores de consola. Las pruebas automatizadas usaron respuestas simuladas. El propietario confirmó
+además un envío real desde la web publicada y la recepción del mensaje en su correo.
+No se realizó una auditoría completa con lector de pantalla.
 
 
 ## API pública elegida: GitHub REST API
@@ -240,7 +241,7 @@ cambios acordados en el chat anterior. Su repositorio es
 https://github.com/mmanquelaf/portafolio y se mantiene separado de esta aplicación.
 
 - [Captura de referencia en alta resolución](docs/captura-e2.png).
-- [Inicio actual de React](docs/captura-react-inicio.jpg).
+- [Captura actual del sitio publicado](docs/captura-publicacion.png).
 - [INVENTARIO.md](INVENTARIO.md): secciones, scripts y estilos recuperados y refactorizados.
 - [uso_ia.md](uso_ia.md): herramientas, propósito, prompts, resultados, ajustes y reflexión crítica.
 
